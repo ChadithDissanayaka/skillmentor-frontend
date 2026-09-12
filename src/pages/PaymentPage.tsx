@@ -167,9 +167,9 @@ export default function PaymentPage() {
             {mentorId && (
               <div className="text-sm font-medium">
                 Session with:{" "}
-                {mentorClass?.mentor.first_name +
-                  " " +
-                  mentorClass?.mentor.last_name}
+                {mentorClass?.mentor
+                  ? `${mentorClass.mentor.first_name} ${mentorClass.mentor.last_name}`
+                  : "Loading..."}
               </div>
             )}
             {date && (

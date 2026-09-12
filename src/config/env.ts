@@ -1,7 +1,8 @@
-const BACKEND_URL = `${import.meta.env.VITE_BACKEND_URL}/api/v1`;
+const rawBackendUrl = import.meta.env.VITE_BACKEND_URL;
 
-if (!BACKEND_URL) {
-  throw new Error("Add your Backend URL to the .env file");
-}
+const BACKEND_URL = rawBackendUrl.endsWith("/api/v1")
+  ? rawBackendUrl
+  : `${rawBackendUrl.replace(/\/+$/, "")}/api/v1`;
 
 export { BACKEND_URL };
+
